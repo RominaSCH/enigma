@@ -4,18 +4,21 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'DM Serif Display', serif;
+    background: #343148;
 }
 
 header{
     text-align: center;
     font-size: 50px;
     padding: 20px;
+    color: #D7C49E;
 }
 main{
     font-size: 22px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    color:#D7C49E;
 }
 .enc{
     grid-area: 1/1/2/2;
@@ -38,14 +41,16 @@ input{
     margin: 10px;
     border: 0;
     outline: 0;
-    border-bottom: 1px solid rgba(0,0,0,0.3);
+    border-bottom: 1px solid #D7C49E;
     text-align: center;
     transition: .2s ease-in-out;
     width: 300px;
+    color:#D7C49E;
 }
 input:hover, input:focus{
     transform: scale(1.1);
-    border-bottom: 1px solid rgba(0,0,0,0.7);
+    background: rgba(200,200,200,0.1);
+    border-bottom: 1px solid #D7C49E;
 }
 button{
     font-size: 17px;
@@ -53,25 +58,32 @@ button{
     outline: 0;
     padding: 5px 10px;
     border-radius: 5px;
+    color:#D7C49E;
+    border: 1px solid #D7C49E;
 }
 .result{
     margin: 20px;
     width: 400px;
     height: 300px;
-    border: 1px solid rgba(0,0,0,.5);
+    border: 1px solid #D7C49E;
     padding: 10px;
 }
 .enc-copy-button, .dec-copy-button{
     background: none;
     outline: 0;
     border: 0;
+}
+button{
     transition: .1s ease-in-out;
 }
-.copy-button:hover{
+button:hover{
     transform: scale(1.1);
 }
 svg{
     width: 30px;
     height: 30px;
-    color: rgba(0,0,0,.5);
+    color: #D7C49E;
+}
+#enc-key, #dec-key{
+    width:40px;
 }
