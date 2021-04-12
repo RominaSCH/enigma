@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Enigma</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <span class="title">ENIGMA</span>
+    </header>
+    <main>
+      <div class="enc">
+        <span>Make your own secret sentence</span>
+        <span>Don't write the number, just alphabet</span>
+        <input type="text" name="enc" id="enc" placeholder="Encrypt" />
+        <button class="enc_btn">Encrypt</button>
+        <div class="enc_result result"></div>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+          </svg>
+      </div>
+
+      <div class="dec">
+        <span>Decrypt the ciphertext</span>
+        <span>Just write the number for ciphertext</span>
+        <input type="text" name="dec" id="dec" placeholder="Decrypt" />
+        <button class="dec_btn">Decrypt</button>
+        <div class="dec_result result"></div>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+          </svg>
+      </div>
+    </main>
+
+    <script src="js/enc.js"></script>
+    <script src="js/dec.js"></script>
+  </body>
+</html>
