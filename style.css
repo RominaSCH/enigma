@@ -12,7 +12,7 @@ header{
     padding: 20px;
 }
 main{
-    font-size: 20px;
+    font-size: 22px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -34,6 +34,7 @@ main{
     height: auto;
 }
 input{
+    font-size: 18px;
     margin: 10px;
     border: 0;
     outline: 0;
@@ -47,19 +48,30 @@ input:hover, input:focus{
     border-bottom: 1px solid rgba(0,0,0,0.7);
 }
 button{
+    font-size: 17px;
     border: 0;
     outline: 0;
-    padding: 5px;
-    width: 70px;
+    padding: 5px 10px;
+    border-radius: 5px;
 }
 .result{
     margin: 20px;
     width: 400px;
     height: 300px;
     border: 1px solid rgba(0,0,0,.5);
+    padding: 10px;
 }
-
+.enc-copy-button, .dec-copy-button{
+    background: none;
+    outline: 0;
+    border: 0;
+    transition: .1s ease-in-out;
+}
+.copy-button:hover{
+    transform: scale(1.1);
+}
 svg{
     width: 30px;
     height: 30px;
+    color: rgba(0,0,0,.5);
 }
