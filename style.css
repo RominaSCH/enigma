@@ -65,7 +65,7 @@ button{
 .result{
     text-align: start;
     margin: 20px;
-    width: 400px;
+    width: 350px;
     height: 300px;
     border: 1px solid var(--font-color);
     padding: 10px;
