@@ -1,47 +1,67 @@
 const decBtn = document.querySelector(".dec_btn");
 const decResult = document.querySelector(".dec_result");
 
-decryp_list = {
-    "1": "a",
-    "2": "b",
-    "3": "c",
-    "4": "d",
-    "5": "e",
-    "6": "f",
-    "7": "g",
-    "8": "h",
-    "9": "i",
-    "10": "j",
-    "11": "k",
-    "12": "l",
-    "13": "m",
-    "14": "n",
-    "15": "o",
-    "16": "p",
-    "17": "q",
-    "18": "r",
-    "19": "s",
-    "20": "t",
-    "21": "u",
-    "22": "v",
-    "23": "w",
-    "24": "x",
-    "25": "y",
-    "26": "z",
-    "27": " "
+let DEC_KEY = 0;
+const decrypObj = {
+    "0": "a",
+    "1": "b",
+    "2": "c",
+    "3": "d",
+    "4": "e",
+    "5": "f",
+    "6": "g",
+    "7": "h",
+    "8": "i",
+    "9": "j",
+    "10": "k",
+    "11": "l",
+    "12": "m",
+    "13": "n",
+    "14": "o",
+    "15": "p",
+    "16": "q",
+    "17": "r",
+    "18": "s",
+    "19": "t",
+    "20": "u",
+    "21": "v",
+    "22": "w",
+    "23": "x",
+    "24": "y",
+    "25": "z",
+    "26": " ",
 }
 
-function decrypt(inputValue){
+function addKeyValue(DEC_KEY){
+    let addedObj = {};
+    const alphabet = ["a","b","c","d","e",'f',"g","h","i","j",'k',"l","m","n","o","p","q","r","s","t","u","v","w","x","y","z", " "];
+    const keys = Object.keys(decrypObj);
+    const value = [];
+    for (let i = 0; i < keys.length; i++) {
+        const key = keys[i] // 각각의 키
+        addedKey = (parseInt(keys[i]) + DEC_KEY)%27;
+        addedObj[addedKey] = alphabet[i];
+      }
+    return addedObj;
+}
+
+function decrypt(inputValue, obj){
     let result = [];
     value = inputValue.split(" ");
     for(const num of value){
-        result.push(decryp_list[num]);
+        result.push(obj[num]);
     }
     return result;
 }
 
-decBtn.addEventListener("click", ()=>{
+decBtn.addEventListener("click", () => {
     const decInput = document.getElementById("dec").value;
-    result = decrypt(decInput);
+    const keyValue = document.getElementById("dec-key").value;
+    decResult.innerText = "";
+    if (keyValue) {
+      DEC_KEY = parseInt(keyValue);
+    }
+    addedObj = addKeyValue(DEC_KEY);
+    result = decrypt(decInput, addedObj);
     decResult.innerText = result.join("");
-})
+  });
