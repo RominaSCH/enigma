@@ -37,7 +37,6 @@ function addKeyValue(ENC_KEY) {
   const alphabet = ["a","b","c","d","e",'f',"g","h","i","j",'k',"l","m","n","o","p","q","r","s","t","u","v","w","x","y","z", " "];
   for(const alpha of alphabet){
       addedObj[alpha] = (encrypObj[alpha] + ENC_KEY)%27;
-      console.log(addedObj[alpha]);
   }
   // console.log(addedOjb);
   return addedObj;
@@ -63,10 +62,16 @@ encBtn.addEventListener("click", () => {
   addedObj = addKeyValue(ENC_KEY);
   result = encrypt(encInput, addedObj);
   encResult.innerText = result.join(" ");
+  encResult.value = result.join(" ");
 });
 
-// document.querySelector(".enc-copy-button").addEventListener("click", ()=>{
-//     const boxResult = encResult.value;
-//     boxResult.select();
-//     document.execCommand("Copy");
-// })
+function copy(){
+  const create = document.createElement("input");
+  create.setAttribute("value", encResult.value);
+  document.body.appendChild(create);
+  create.select();
+  document.execCommand("copy");
+  document.body.removeChild(create);
+  alert("copy!");
+}//갓뎀 된다 이제 된다..body.appendChild 가 날 살렸다!!!!
+

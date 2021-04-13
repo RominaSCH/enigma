@@ -63,6 +63,7 @@ button{
     border: 1px solid var(--font-color);
 }
 .result{
+    text-align: start;
     margin: 20px;
     width: 400px;
     height: 300px;
@@ -102,4 +103,8 @@ a, a:visited{
 }
 .switch:hover{
     transform: scale(1.2);
+}
+
+button:active{
+    color: white;
 }
