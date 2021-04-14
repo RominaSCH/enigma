@@ -1,4 +1,5 @@
 const encBtn = document.querySelector(".enc_btn");
+const encBtnRandom = document.querySelector(".enc_random_btn");
 const encResult = document.querySelector(".enc_result");
 
 let ENC_KEY = 0;
@@ -30,15 +31,52 @@ const encrypObj = {
     "y": 24,
     "z": 25,
     " ": 26,
+    "!": 27,
+    "?": 28,
+    ",": 29,
+    ".": 30
   };
 
-function addKeyValue(ENC_KEY) {
+  const encrypObjRandom = {
+    "a": 6,
+    "b": 12,
+    "c": 18,
+    "d": 8,
+    "e": 23,
+    "f": 28,
+    "g": 3,
+    "h": 24,
+    "i": 15,
+    "j": 19,
+    "k": 2,
+    "l": 1,
+    "m": 9,
+    "n": 20,
+    "o": 25,
+    "p": 29,
+    "q": 5,
+    "r": 16,
+    "s": 0,
+    "t": 10,
+    "u": 30,
+    "v": 14,
+    "w": 21,
+    "x": 26,
+    "y": 11,
+    "z": 4,
+    " ": 13,
+    "!": 7,
+    "?": 22,
+    ",": 27,
+    ".": 17
+  };
+
+function addKeyValue(Obj, ENC_KEY) {
   let addedObj = {};
-  const alphabet = ["a","b","c","d","e",'f',"g","h","i","j",'k',"l","m","n","o","p","q","r","s","t","u","v","w","x","y","z", " "];
+  const alphabet = ["a","b","c","d","e",'f',"g","h","i","j",'k',"l","m","n","o","p","q","r","s","t","u","v","w","x","y","z", " ","!","?", "," , "."];
   for(const alpha of alphabet){
-      addedObj[alpha] = (encrypObj[alpha] + ENC_KEY)%27;
+      addedObj[alpha] = (Obj[alpha] + ENC_KEY)%31;
   }
-  // console.log(addedOjb);
   return addedObj;
 }
 
@@ -59,11 +97,26 @@ encBtn.addEventListener("click", () => {
   if (keyValue) {
     ENC_KEY = parseInt(keyValue);
   }
-  addedObj = addKeyValue(ENC_KEY);
+  addedObj = addKeyValue(encrypObj ,ENC_KEY);
   result = encrypt(encInput, addedObj);
   encResult.innerText = result.join(" ");
   encResult.value = result.join(" ");
 });
+
+encBtnRandom.addEventListener("click", () => {
+  const encInput = document.getElementById("enc").value;
+  const keyValue = document.getElementById("enc-key").value;
+  encResult.innerText = "";
+  if (keyValue) {
+    ENC_KEY = parseInt(keyValue);
+  }
+  addedObj = addKeyValue(encrypObjRandom, ENC_KEY);
+  result = encrypt(encInput, addedObj);
+  encResult.innerText = result.join(" ");
+  encResult.value = result.join(" ");
+});
+
+
 
 function copy(){
   const create = document.createElement("input");

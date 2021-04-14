@@ -53,6 +53,17 @@ input:hover, input:focus{
     background: rgba(200,200,200,0.1);
     border-bottom: 1px solid var(--font-color);
 }
+.result_buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.enc_btn,
+.dec_btn{
+    margin-right: 20px;
+}
+
 button{
     font-size: 17px;
     border: 0;

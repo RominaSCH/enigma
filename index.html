@@ -19,9 +19,13 @@
         <input type="text" name="enc" id="enc" placeholder="Encrypt" />
         <span>Write the key(number), not required.</span>
         <input type="text" name="enc-key" id="enc-key" placeholder="KEY">
-        <button class="enc_btn">Encrypt</button>
+        <div class="result_buttons">
+          <button class="enc_btn">Encrypt</button>
+          <button class="enc_random_btn">Encrypt-R</button>
+        </div>
         <div class="enc_result result" id="result"></div>
-        <button class="enc-copy-button" onclick="copy()"><!--onclick="copy()"-->
+        
+        <button class="enc-copy-button" onclick="copy()">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
           </svg></button>

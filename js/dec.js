@@ -1,4 +1,5 @@
 const decBtn = document.querySelector(".dec_btn");
+const decBtnRandom = document.querySelector(".dec_random_btn");
 const decResult = document.querySelector(".dec_result");
 
 let DEC_KEY = 0;
@@ -30,45 +31,65 @@ const decrypObj = {
   24: "y",
   25: "z",
   26: " ",
+  27: "!",
+  28: "?",
+  29: ",",
+  30: "."
+};
+const decrypObjRandom = {
+  6: "a",
+  12: "b",
+  18: "c",
+  8: "d",
+  23: "e",
+  28: "f",
+  3: "g",
+  24: "h",
+  15: "i",
+  19: "j",
+  2: "k",
+  1: "l",
+  9: "m",
+  20: "n",
+  25: "o",
+  29: "p",
+  5: "q",
+  16: "r",
+  0: "s",
+  10: "t",
+  30: "u",
+  14: "v",
+  21: "w",
+  26: "x",
+  11: "y",
+  4: "z",
+  13: " ",
+  7: "!",
+  22: "?",
+  27: ",",
+  17: "."
 };
 
 function addKeyValue(DEC_KEY) {
   let addedObj = {};
-  const alphabet = [
-    "a",
-    "b",
-    "c",
-    "d",
-    "e",
-    "f",
-    "g",
-    "h",
-    "i",
-    "j",
-    "k",
-    "l",
-    "m",
-    "n",
-    "o",
-    "p",
-    "q",
-    "r",
-    "s",
-    "t",
-    "u",
-    "v",
-    "w",
-    "x",
-    "y",
-    "z",
-    " ",
-  ];
-  const keys = Object.keys(decrypObj);
+  const alphabet = ["a","b","c","d","e",'f',"g","h","i","j",'k',"l","m","n","o","p","q","r","s","t","u","v","w","x","y","z", " ","!","?", "," , "."];
+  const key = Object.keys(decrypObj);
   const value = [];
-  for (let i = 0; i < keys.length; i++) {
-    const key = keys[i]; // 각각의 키
-    addedKey = (parseInt(keys[i]) + DEC_KEY) % 27;
+  for (let i = 0; i < key.length; i++) {
+    addedKey = (parseInt(key[i]) + DEC_KEY) % 31;
     addedObj[addedKey] = alphabet[i];
+  }
+  return addedObj;
+}
+
+function addKeyValueRandom(DEC_KEY) {
+  let addedObj = {};
+  const alphabetR = ["s","l","k","g","z","q","a","!","d","m","t","y","b"," ","v","i","r",".","c","j","n","w","?","e","h","o","x", "," ,"f","p","u"];
+  const key = Object.keys(decrypObjRandom);
+  const value = [];
+  for (let i = 0; i < key.length; i++) {
+    addedKey = (parseInt(key[i]) + DEC_KEY) % 31;
+    addedObj[addedKey] = alphabetR[i];
   }
   return addedObj;
 }
@@ -94,9 +115,22 @@ decBtn.addEventListener("click", () => {
   decResult.innerText = result.join("");
 });
 
+decBtnRandom.addEventListener("click", () => {
+  const decInput = document.getElementById("dec").value;
+  const keyValue = document.getElementById("dec-key").value;
+  decResult.innerText = "";
+  if (keyValue) {
+    DEC_KEY = parseInt(keyValue);
+  }
+  addedObj = addKeyValueRandom(DEC_KEY);
+  result = decrypt(decInput, addedObj);
+  decResult.innerText = result.join("");
+});
+
+
 function copy() {
   const create = document.createElement("input");
-  create.setAttribute("value", encResult.value);
+  create.setAttribute("value", decResult.value);
   document.body.appendChild(create);
   create.select();
   document.execCommand("copy");
