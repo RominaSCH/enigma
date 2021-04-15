@@ -117,8 +117,8 @@ encBtnRandom.addEventListener("click", () => {
 });
 
 
-
-function copy(){
+//-------------------copy-------------------//
+function copy() {
   const create = document.createElement("input");
   create.setAttribute("value", encResult.value);
   document.body.appendChild(create);
@@ -127,7 +127,6 @@ function copy(){
   document.body.removeChild(create);
 }//갓뎀 된다 이제 된다..body.appendChild 가 날 살렸다!!!!
 
-//-------------------copy modal-------------------//
 const openBtn = document.getElementById("open");
 const modal = document.querySelector(".modal");
 const overlay = modal.querySelector(".modal_overlay");
