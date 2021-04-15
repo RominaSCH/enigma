@@ -86,6 +86,7 @@ function addKeyValueRandom(DEC_KEY) {
   let addedObj = {};
   const alphabetR = ["s","l","k","g","z","q","a","!","d","m","t","y","b"," ","v","i","r",".","c","j","n","w","?","e","h","o","x", "," ,"f","p","u"];
   const key = Object.keys(decrypObjRandom);
+  //왜 지들맘대로 key order 하고 지랄이야 그냥 냅두지 ㅅㅂ
   const value = [];
   for (let i = 0; i < key.length; i++) {
     addedKey = (parseInt(key[i]) + DEC_KEY) % 31;
@@ -135,5 +136,15 @@ function copy() {
   create.select();
   document.execCommand("copy");
   document.body.removeChild(create);
-  alert("copy!");
 }
+
+//-------------------copy modal-------------------//
+const openBtn = document.getElementById("open");
+const modal = document.querySelector(".modal");
+const overlay = modal.querySelector(".modal_overlay");
+const closeBtn = modal.querySelector("button");
+
+openBtn.addEventListener("click", () => {
+  modal.classList.remove("hidden");
+  setTimeout( () => {modal.classList.add("hidden")}, 1000);
+})

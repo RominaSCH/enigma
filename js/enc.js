@@ -125,6 +125,15 @@ function copy(){
   create.select();
   document.execCommand("copy");
   document.body.removeChild(create);
-  alert("copy!");
 }//갓뎀 된다 이제 된다..body.appendChild 가 날 살렸다!!!!
 
+//-------------------copy modal-------------------//
+const openBtn = document.getElementById("open");
+const modal = document.querySelector(".modal");
+const overlay = modal.querySelector(".modal_overlay");
+const closeBtn = modal.querySelector("button");
+
+openBtn.addEventListener("click", () => {
+  modal.classList.remove("hidden");
+  setTimeout( () => {modal.classList.add("hidden")}, 1000);
+})

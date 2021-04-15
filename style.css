@@ -119,3 +119,41 @@ a, a:visited{
 button:active{
     color: white;
 }
+.modal{
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modal_overlay{
+    background-color: rgba(0,0,0,.6);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+.modal_content{
+    position: relative;
+    background-color: var(--font-color);
+    padding: 25px 20px;
+    text-align: center;
+    top: 0;
+    width: 16%;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+.modal_content span{
+    color: #343148;
+    background-color: var(--font-color);
+    margin: 0;
+}
+.modal_content button{
+    margin-top: 5px;
+}
+.hidden{
+    display: none;
+}
