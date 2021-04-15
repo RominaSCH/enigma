@@ -90,7 +90,7 @@ button{
     transition: .1s ease-in-out;
 }
 button:hover{
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 svg{
     width: 30px;
@@ -113,7 +113,7 @@ a, a:visited{
     transition: .2s ease-in-out;
 }
 .switch:hover{
-    transform: scale(1.2);
+    transform: scale(1.08);
 }
 
 button:active{
